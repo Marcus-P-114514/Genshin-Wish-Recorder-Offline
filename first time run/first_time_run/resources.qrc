@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/pictures">
+        <file>resources/bg.png</file>
+        <file>resources/pushbutton_language.png</file>
+        <file>resources/pushbutton_back.png</file>
+    </qresource>
+    <qresource prefix="/docs">
+        <file>resources/license</file>
+    </qresource>
+</RCC>

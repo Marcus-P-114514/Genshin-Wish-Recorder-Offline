@@ -15,6 +15,13 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_next_page_from_page_one_button_clicked();
+
+    void on_next_page_from_page_two_button_clicked();
+
+    void on_previous_page_from_page_two_button_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

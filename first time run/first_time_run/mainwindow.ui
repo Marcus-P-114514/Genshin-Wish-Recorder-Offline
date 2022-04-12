@@ -6,16 +6,298 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>965</width>
+    <height>619</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
-  <widget class="QMenuBar" name="menubar"/>
-  <widget class="QStatusBar" name="statusbar"/>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QGraphicsView" name="background">
+    <property name="geometry">
+     <rect>
+      <x>-10</x>
+      <y>1</y>
+      <width>971</width>
+      <height>641</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/pictures/resources/bg.png);</string>
+    </property>
+   </widget>
+   <widget class="QTabWidget" name="frame">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>871</width>
+      <height>541</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-color: rgba(255, 255, 255, 0);
+alternate-background-color: rgb(255, 255, 255);
+gridline-color: rgb(255, 255, 255);</string>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
+    </property>
+    <property name="documentMode">
+     <bool>true</bool>
+    </property>
+    <property name="tabBarAutoHide">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="tab">
+     <attribute name="title">
+      <string>License</string>
+     </attribute>
+     <widget class="QLabel" name="title_1">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>851</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 700 20pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>License</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="instruction_1">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>861</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Once you clicked next you agree with this license. Please note that all the chracter and weapon pictures is not part of this project. They belongs to BWIKI of Genshin Impact, which is not allowed for commercial use. If you reject any part of the licence or word in this sentence, juet close the window.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QTextBrowser" name="license_browser">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>861</width>
+        <height>281</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(33, 150, 243);</string>
+      </property>
+      <property name="source">
+       <url>
+        <string>qrc:/docs/resources/license</string>
+       </url>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="next_from_page_one">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_language.png);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_page_from_page_one_button">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+     <zorder>title_1</zorder>
+     <zorder>instruction_1</zorder>
+     <zorder>next_from_page_one</zorder>
+     <zorder>license_browser</zorder>
+     <zorder>next_page_from_page_one_button</zorder>
+    </widget>
+    <widget class="QWidget" name="tab_2">
+     <attribute name="title">
+      <string>Language Settings</string>
+     </attribute>
+     <widget class="QLabel" name="title_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>851</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 700 20pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Language Settings</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="instruction_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>60</y>
+        <width>861</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>The language setting should be the same as your system. However, we only support English and Chinese. If your system preferred language is neither English nor Chinese, a fallback expected.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="next_from_page_two">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_language.png);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_page_from_page_two_button">
+      <property name="geometry">
+       <rect>
+        <x>680</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="back_to_page_one_bg">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_back.png);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_page_from_page_two_button">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+     <zorder>next_from_page_two</zorder>
+     <zorder>title_2</zorder>
+     <zorder>instruction_2</zorder>
+     <zorder>next_page_from_page_two_button</zorder>
+     <zorder>back_to_page_one_bg</zorder>
+     <zorder>previous_page_from_page_two_button</zorder>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>User Profile</string>
+     </attribute>
+     <widget class="QLabel" name="title_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>851</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 700 20pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>User Profile</string>
+      </property>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
  </widget>
  <resources/>
  <connections/>
