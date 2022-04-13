@@ -45,7 +45,7 @@ alternate-background-color: rgb(255, 255, 255);
 gridline-color: rgb(255, 255, 255);</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>5</number>
     </property>
     <property name="documentMode">
      <bool>true</bool>
@@ -206,7 +206,7 @@ font: 12pt &quot;思源黑体&quot;;</string>
      <widget class="QGraphicsView" name="next_from_page_two">
       <property name="geometry">
        <rect>
-        <x>680</x>
+        <x>700</x>
         <y>450</y>
         <width>171</width>
         <height>51</height>
@@ -219,7 +219,7 @@ font: 12pt &quot;思源黑体&quot;;</string>
      <widget class="QPushButton" name="next_page_from_page_two_button">
       <property name="geometry">
        <rect>
-        <x>680</x>
+        <x>700</x>
         <y>450</y>
         <width>171</width>
         <height>51</height>
@@ -295,6 +295,586 @@ font: 700 20pt &quot;思源黑体&quot;;</string>
        <string>User Profile</string>
       </property>
      </widget>
+     <widget class="QLabel" name="instruction_3">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>861</width>
+        <height>121</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Please enter your basic user profile here. Please note that we do not use your information to get any data. The information you enter are only for displaying.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="input_username">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>110</y>
+        <width>601</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-color: rgb(149, 202, 243);
+</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="instruction_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>110</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Username:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="instruction_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>140</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>UID:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="input_uid">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>140</y>
+        <width>601</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-color: rgb(149, 202, 243);
+</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="instruction_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>170</y>
+        <width>121</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Signature:</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="input_signature">
+      <property name="geometry">
+       <rect>
+        <x>130</x>
+        <y>170</y>
+        <width>601</width>
+        <height>27</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-color: rgb(149, 202, 243);
+</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_page_from_page_three_button">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="back_to_page_two_bg">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_back.png);</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="next_from_page_three">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_language.png);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_page_from_page_three_button">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+     <zorder>back_to_page_two_bg</zorder>
+     <zorder>title_3</zorder>
+     <zorder>instruction_3</zorder>
+     <zorder>instruction_4</zorder>
+     <zorder>instruction_5</zorder>
+     <zorder>input_username</zorder>
+     <zorder>input_uid</zorder>
+     <zorder>instruction_6</zorder>
+     <zorder>input_signature</zorder>
+     <zorder>previous_page_from_page_three_button</zorder>
+     <zorder>next_from_page_three</zorder>
+     <zorder>next_page_from_page_three_button</zorder>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>User Avatar</string>
+     </attribute>
+     <widget class="QLabel" name="title_4">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>851</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 700 20pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Avatar</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="instruction_7">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>861</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Please choose an avatar that you prefer. You can change it later any time.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="avatar_picker">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>90</y>
+        <width>851</width>
+        <height>28</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="back_to_page_three_bg">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_back.png);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_page_from_page_four_button">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="next_from_page_four">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_language.png);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_page_from_page_four_button">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Record</string>
+     </attribute>
+     <widget class="QLabel" name="title_5">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>851</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 700 20pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Record</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="instruction_8">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>861</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>In this section you are going to enter your wish record. Please enter that in the new window. If there is no new window pop out, please find it in your task bar. If there is still nothing, simply open &quot;record-upd.exe&quot;</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_page_from_page_five_button">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="back_to_page_four_bg">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_back.png);</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="next_from_page_five">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_language.png);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_page_from_page_five_button">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+     <zorder>back_to_page_four_bg</zorder>
+     <zorder>title_5</zorder>
+     <zorder>instruction_8</zorder>
+     <zorder>previous_page_from_page_five_button</zorder>
+     <zorder>next_from_page_five</zorder>
+     <zorder>next_page_from_page_five_button</zorder>
+    </widget>
+    <widget class="QWidget" name="tab_6">
+     <attribute name="title">
+      <string>Finish</string>
+     </attribute>
+     <widget class="QLabel" name="title_6">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>0</y>
+        <width>851</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 700 20pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Finish</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="instruction_9">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>861</width>
+        <height>81</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string>That is end of the setup. Please click &quot;next&quot; to start to use, if you wish to change your settings, please click &quot;back&quot;.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="previous_page_from_page_six_button">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>141</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Back</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="back_to_page_five_bg">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>450</y>
+        <width>151</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_back.png);</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="next_from_page_six">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_language.png);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="next_page_from_page_six_button">
+      <property name="geometry">
+       <rect>
+        <x>700</x>
+        <y>450</y>
+        <width>171</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);
+border-color: rgba(255, 255, 255, 0);
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Next</string>
+      </property>
+     </widget>
+     <zorder>back_to_page_five_bg</zorder>
+     <zorder>title_6</zorder>
+     <zorder>instruction_9</zorder>
+     <zorder>previous_page_from_page_six_button</zorder>
+     <zorder>next_from_page_six</zorder>
+     <zorder>next_page_from_page_six_button</zorder>
     </widget>
    </widget>
   </widget>

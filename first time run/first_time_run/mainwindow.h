@@ -22,6 +22,22 @@ private slots:
 
     void on_previous_page_from_page_two_button_clicked();
 
+    void on_previous_page_from_page_three_button_clicked();
+
+    void on_next_page_from_page_three_button_clicked();
+
+    void on_previous_page_from_page_four_button_clicked();
+
+    void on_next_page_from_page_four_button_clicked();
+
+    void on_previous_page_from_page_five_button_clicked();
+
+    void on_next_page_from_page_five_button_clicked();
+
+    void on_previous_page_from_page_six_button_clicked();
+
+    void on_next_page_from_page_six_button_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
