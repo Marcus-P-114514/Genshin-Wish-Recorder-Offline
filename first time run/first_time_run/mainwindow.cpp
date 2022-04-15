@@ -180,6 +180,13 @@ void MainWindow::on_previous_page_from_page_six_button_clicked()
 
 void MainWindow::on_next_page_from_page_six_button_clicked()
 {
+    //Write the file
+    QSettings *write_seted_up = new QSettings("./profile/shared/extra.ini", QSettings::IniFormat);
+    write_seted_up->setValue( "first_time_run/value","n");
+
+    //Close function
+    delete write_seted_up;
+
     //Reopen main Program
     QProcess::startDetached( "wish-recorder.exe" ,QStringList());
 
