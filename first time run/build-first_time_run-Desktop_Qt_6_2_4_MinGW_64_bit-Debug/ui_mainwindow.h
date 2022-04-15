@@ -57,12 +57,20 @@ public:
     QPushButton *next_page_from_page_three_button;
     QWidget *tab_4;
     QLabel *title_4;
-    QLabel *instruction_7;
-    QComboBox *avatar_picker;
     QGraphicsView *back_to_page_three_bg;
     QPushButton *previous_page_from_page_four_button;
     QGraphicsView *next_from_page_four;
     QPushButton *next_page_from_page_four_button;
+    QLabel *avatar_select;
+    QLabel *label_2;
+    QLabel *username;
+    QGraphicsView *graphicsView_3;
+    QLabel *uid;
+    QLabel *sign;
+    QGraphicsView *user_avatar_preview;
+    QGraphicsView *preview_avatar_bg;
+    QPushButton *preview_avatar;
+    QComboBox *avatar_selecter;
     QWidget *tab_5;
     QLabel *title_5;
     QLabel *instruction_8;
@@ -88,7 +96,7 @@ public:
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         background = new QGraphicsView(centralwidget);
         background->setObjectName(QString::fromUtf8("background"));
-        background->setGeometry(QRect(-10, 1, 971, 641));
+        background->setGeometry(QRect(0, 0, 971, 641));
         background->setStyleSheet(QString::fromUtf8("border-image: url(:/pictures/resources/bg.png);"));
         frame = new QTabWidget(centralwidget);
         frame->setObjectName(QString::fromUtf8("frame"));
@@ -275,17 +283,6 @@ public:
         title_4->setGeometry(QRect(10, 0, 851, 51));
         title_4->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
 "font: 700 20pt \"\346\200\235\346\272\220\351\273\221\344\275\223\";"));
-        instruction_7 = new QLabel(tab_4);
-        instruction_7->setObjectName(QString::fromUtf8("instruction_7"));
-        instruction_7->setGeometry(QRect(10, 40, 861, 31));
-        instruction_7->setToolTipDuration(2);
-        instruction_7->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
-"font: 12pt \"\346\200\235\346\272\220\351\273\221\344\275\223\";"));
-        instruction_7->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
-        instruction_7->setWordWrap(true);
-        avatar_picker = new QComboBox(tab_4);
-        avatar_picker->setObjectName(QString::fromUtf8("avatar_picker"));
-        avatar_picker->setGeometry(QRect(10, 90, 851, 28));
         back_to_page_three_bg = new QGraphicsView(tab_4);
         back_to_page_three_bg->setObjectName(QString::fromUtf8("back_to_page_three_bg"));
         back_to_page_three_bg->setGeometry(QRect(0, 450, 151, 51));
@@ -308,7 +305,87 @@ public:
 "background-color: rgba(255, 255, 255, 0);\n"
 "border-color: rgba(255, 255, 255, 0);\n"
 "color: rgb(0, 0, 0);"));
+        avatar_select = new QLabel(tab_4);
+        avatar_select->setObjectName(QString::fromUtf8("avatar_select"));
+        avatar_select->setGeometry(QRect(110, 70, 751, 31));
+        avatar_select->setToolTipDuration(2);
+        avatar_select->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+"font: 12pt \"\346\200\235\346\272\220\351\273\221\344\275\223\";"));
+        avatar_select->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
+        avatar_select->setWordWrap(true);
+        label_2 = new QLabel(tab_4);
+        label_2->setObjectName(QString::fromUtf8("label_2"));
+        label_2->setGeometry(QRect(10, 50, 851, 61));
+        QFont font;
+        font.setFamilies({QString::fromUtf8("\346\200\235\346\272\220\351\273\221\344\275\223")});
+        font.setPointSize(12);
+        label_2->setFont(font);
+        label_2->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);"));
+        label_2->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
+        label_2->setWordWrap(true);
+        username = new QLabel(tab_4);
+        username->setObjectName(QString::fromUtf8("username"));
+        username->setGeometry(QRect(229, 180, 551, 31));
+        QFont font1;
+        font1.setFamilies({QString::fromUtf8("\346\200\235\346\272\220\351\273\221\344\275\223")});
+        font1.setPointSize(18);
+        font1.setBold(true);
+        username->setFont(font1);
+        username->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);"));
+        graphicsView_3 = new QGraphicsView(tab_4);
+        graphicsView_3->setObjectName(QString::fromUtf8("graphicsView_3"));
+        graphicsView_3->setGeometry(QRect(29, 150, 801, 192));
+        graphicsView_3->setStyleSheet(QString::fromUtf8("border-image: url(:/pictures/resources/avatar_preview_card.png);"));
+        uid = new QLabel(tab_4);
+        uid->setObjectName(QString::fromUtf8("uid"));
+        uid->setGeometry(QRect(229, 220, 501, 31));
+        QFont font2;
+        font2.setFamilies({QString::fromUtf8("\346\200\235\346\272\220\351\273\221\344\275\223")});
+        font2.setPointSize(12);
+        font2.setBold(false);
+        uid->setFont(font2);
+        uid->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);"));
+        sign = new QLabel(tab_4);
+        sign->setObjectName(QString::fromUtf8("sign"));
+        sign->setGeometry(QRect(229, 250, 561, 61));
+        sign->setFont(font);
+        sign->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);"));
+        sign->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop);
+        sign->setWordWrap(true);
+        user_avatar_preview = new QGraphicsView(tab_4);
+        user_avatar_preview->setObjectName(QString::fromUtf8("user_avatar_preview"));
+        user_avatar_preview->setGeometry(QRect(69, 180, 141, 131));
+        user_avatar_preview->setStyleSheet(QString::fromUtf8("border-image: url(:/characters/resources/rectangle/unknown_placeholder_256px.png);"));
+        preview_avatar_bg = new QGraphicsView(tab_4);
+        preview_avatar_bg->setObjectName(QString::fromUtf8("preview_avatar_bg"));
+        preview_avatar_bg->setGeometry(QRect(670, 360, 161, 51));
+        preview_avatar_bg->setStyleSheet(QString::fromUtf8("border-image: url(:/pictures/resources/pushbutton_language.png);"));
+        preview_avatar = new QPushButton(tab_4);
+        preview_avatar->setObjectName(QString::fromUtf8("preview_avatar"));
+        preview_avatar->setGeometry(QRect(670, 360, 161, 51));
+        preview_avatar->setStyleSheet(QString::fromUtf8("color: rgb(0, 0, 0);\n"
+"font: 12pt \"\346\200\235\346\272\220\351\273\221\344\275\223\";\n"
+"background-color: rgba(255, 255, 255, 0);"));
+        avatar_selecter = new QComboBox(tab_4);
+        avatar_selecter->setObjectName(QString::fromUtf8("avatar_selecter"));
+        avatar_selecter->setGeometry(QRect(10, 120, 851, 26));
+        avatar_selecter->setStyleSheet(QString::fromUtf8("font: 12pt \"Consolas\";"));
         frame->addTab(tab_4, QString());
+        graphicsView_3->raise();
+        uid->raise();
+        sign->raise();
+        title_4->raise();
+        back_to_page_three_bg->raise();
+        previous_page_from_page_four_button->raise();
+        next_from_page_four->raise();
+        next_page_from_page_four_button->raise();
+        avatar_select->raise();
+        label_2->raise();
+        username->raise();
+        user_avatar_preview->raise();
+        preview_avatar_bg->raise();
+        preview_avatar->raise();
+        avatar_selecter->raise();
         tab_5 = new QWidget();
         tab_5->setObjectName(QString::fromUtf8("tab_5"));
         title_5 = new QLabel(tab_5);
@@ -401,7 +478,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        frame->setCurrentIndex(5);
+        frame->setCurrentIndex(3);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -409,7 +486,7 @@ public:
 
     void retranslateUi(QMainWindow *MainWindow)
     {
-        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "Setup Wizard", nullptr));
         title_1->setText(QCoreApplication::translate("MainWindow", "License", nullptr));
         instruction_1->setText(QCoreApplication::translate("MainWindow", "Once you clicked next you agree with this license. Please note that all the chracter and weapon pictures is not part of this project. They belongs to BWIKI of Genshin Impact, which is not allowed for commercial use. If you reject any part of the licence or word in this sentence, juet close the window.", nullptr));
         next_page_from_page_one_button->setText(QCoreApplication::translate("MainWindow", "Next", nullptr));
@@ -428,9 +505,14 @@ public:
         next_page_from_page_three_button->setText(QCoreApplication::translate("MainWindow", "Next", nullptr));
         frame->setTabText(frame->indexOf(tab_3), QCoreApplication::translate("MainWindow", "User Profile", nullptr));
         title_4->setText(QCoreApplication::translate("MainWindow", "Avatar", nullptr));
-        instruction_7->setText(QCoreApplication::translate("MainWindow", "Please choose an avatar that you prefer. You can change it later any time.", nullptr));
         previous_page_from_page_four_button->setText(QCoreApplication::translate("MainWindow", "Back", nullptr));
         next_page_from_page_four_button->setText(QCoreApplication::translate("MainWindow", "Next", nullptr));
+        avatar_select->setText(QString());
+        label_2->setText(QCoreApplication::translate("MainWindow", "The given combobox provides a list of avaliable file. You can choose one freely. You can press the \"Preview\" button to preview the avatar. If you pressed \"Next\", your settings will be saved.", nullptr));
+        username->setText(QCoreApplication::translate("MainWindow", "Test Account", nullptr));
+        uid->setText(QCoreApplication::translate("MainWindow", "UID Unavaliable, but this is a placeholder", nullptr));
+        sign->setText(QCoreApplication::translate("MainWindow", "This is a test card, for you to preview your changes. Your settings is not saved yet. To save, please press \"next\".", nullptr));
+        preview_avatar->setText(QCoreApplication::translate("MainWindow", "Preview", nullptr));
         frame->setTabText(frame->indexOf(tab_4), QCoreApplication::translate("MainWindow", "User Avatar", nullptr));
         title_5->setText(QCoreApplication::translate("MainWindow", "Record", nullptr));
         instruction_8->setText(QCoreApplication::translate("MainWindow", "In this section you are going to enter your wish record. Please enter that in the new window. If there is no new window pop out, please find it in your task bar. If there is still nothing, simply open \"record-upd.exe\"", nullptr));

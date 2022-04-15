@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Setup Wizard</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
@@ -20,8 +20,8 @@
    <widget class="QGraphicsView" name="background">
     <property name="geometry">
      <rect>
-      <x>-10</x>
-      <y>1</y>
+      <x>0</x>
+      <y>0</y>
       <width>971</width>
       <height>641</height>
      </rect>
@@ -45,7 +45,7 @@ alternate-background-color: rgb(255, 255, 255);
 gridline-color: rgb(255, 255, 255);</string>
     </property>
     <property name="currentIndex">
-     <number>5</number>
+     <number>3</number>
     </property>
     <property name="documentMode">
      <bool>true</bool>
@@ -539,42 +539,6 @@ font: 700 20pt &quot;思源黑体&quot;;</string>
        <string>Avatar</string>
       </property>
      </widget>
-     <widget class="QLabel" name="instruction_7">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>40</y>
-        <width>861</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="toolTipDuration">
-       <number>2</number>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-font: 12pt &quot;思源黑体&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Please choose an avatar that you prefer. You can change it later any time.</string>
-      </property>
-      <property name="alignment">
-       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-      </property>
-      <property name="wordWrap">
-       <bool>true</bool>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="avatar_picker">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>90</y>
-        <width>851</width>
-        <height>28</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QGraphicsView" name="back_to_page_three_bg">
       <property name="geometry">
        <rect>
@@ -639,6 +603,219 @@ color: rgb(0, 0, 0);</string>
        <string>Next</string>
       </property>
      </widget>
+     <widget class="QLabel" name="avatar_select">
+      <property name="geometry">
+       <rect>
+        <x>110</x>
+        <y>70</y>
+        <width>751</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="toolTipDuration">
+       <number>2</number>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;思源黑体&quot;;</string>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>50</y>
+        <width>851</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>思源黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>The given combobox provides a list of avaliable file. You can choose one freely. You can press the &quot;Preview&quot; button to preview the avatar. If you pressed &quot;Next&quot;, your settings will be saved.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QLabel" name="username">
+      <property name="geometry">
+       <rect>
+        <x>229</x>
+        <y>180</y>
+        <width>551</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>思源黑体</family>
+        <pointsize>18</pointsize>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Test Account</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="graphicsView_3">
+      <property name="geometry">
+       <rect>
+        <x>29</x>
+        <y>150</y>
+        <width>801</width>
+        <height>192</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/avatar_preview_card.png);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="uid">
+      <property name="geometry">
+       <rect>
+        <x>229</x>
+        <y>220</y>
+        <width>501</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>思源黑体</family>
+        <pointsize>12</pointsize>
+        <bold>false</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>UID Unavaliable, but this is a placeholder</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="sign">
+      <property name="geometry">
+       <rect>
+        <x>229</x>
+        <y>250</y>
+        <width>561</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="font">
+       <font>
+        <family>思源黑体</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>This is a test card, for you to preview your changes. Your settings is not saved yet. To save, please press &quot;next&quot;.</string>
+      </property>
+      <property name="alignment">
+       <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+      </property>
+      <property name="wordWrap">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="user_avatar_preview">
+      <property name="geometry">
+       <rect>
+        <x>69</x>
+        <y>180</y>
+        <width>141</width>
+        <height>131</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/characters/resources/rectangle/unknown_placeholder_256px.png);</string>
+      </property>
+     </widget>
+     <widget class="QGraphicsView" name="preview_avatar_bg">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>360</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">border-image: url(:/pictures/resources/pushbutton_language.png);</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="preview_avatar">
+      <property name="geometry">
+       <rect>
+        <x>670</x>
+        <y>360</y>
+        <width>161</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 12pt &quot;思源黑体&quot;;
+background-color: rgba(255, 255, 255, 0);</string>
+      </property>
+      <property name="text">
+       <string>Preview</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="avatar_selecter">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>851</width>
+        <height>26</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;Consolas&quot;;</string>
+      </property>
+     </widget>
+     <zorder>graphicsView_3</zorder>
+     <zorder>uid</zorder>
+     <zorder>sign</zorder>
+     <zorder>title_4</zorder>
+     <zorder>back_to_page_three_bg</zorder>
+     <zorder>previous_page_from_page_four_button</zorder>
+     <zorder>next_from_page_four</zorder>
+     <zorder>next_page_from_page_four_button</zorder>
+     <zorder>avatar_select</zorder>
+     <zorder>label_2</zorder>
+     <zorder>username</zorder>
+     <zorder>user_avatar_preview</zorder>
+     <zorder>preview_avatar_bg</zorder>
+     <zorder>preview_avatar</zorder>
+     <zorder>avatar_selecter</zorder>
     </widget>
     <widget class="QWidget" name="tab_5">
      <attribute name="title">

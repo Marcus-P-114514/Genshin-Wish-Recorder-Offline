@@ -19,7 +19,7 @@ CXXFLAGS      = -fno-keep-inline-dllexport -g -std=gnu++1z -Wall -Wextra -Wextra
 INCPATH       = -I../first_time_run -I. -ID:/Qt/6.2.4/mingw_64/include -ID:/Qt/6.2.4/mingw_64/include/QtWidgets -ID:/Qt/6.2.4/mingw_64/include/QtGui -ID:/Qt/6.2.4/mingw_64/include/QtCore -Idebug -I. -I/include -ID:/Qt/6.2.4/mingw_64/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-subsystem,windows -mthreads
-LIBS        =        D:\Qt\6.2.4\mingw_64\lib\libQt6Widgets.a D:\Qt\6.2.4\mingw_64\lib\libQt6Gui.a D:\Qt\6.2.4\mingw_64\lib\libQt6Core.a -lmingw32 D:\Qt\6.2.4\mingw_64\lib\libQt6EntryPoint.a -lshell32  
+LIBS        =        D:\Qt\6.2.4\mingw_64\lib\libQt6Widgets.a D:\Qt\6.2.4\mingw_64\lib\libQt6Gui.a D:\Qt\6.2.4\mingw_64\lib\libQt6Core.a debug\first_time_run_resource_res.o -lmingw32 D:\Qt\6.2.4\mingw_64\lib\libQt6EntryPoint.a -lshell32  
 QMAKE         = D:\Qt\6.2.4\mingw_64\bin\qmake.exe
 DEL_FILE      = del
 CHK_DIR_EXISTS= if not exist
@@ -40,7 +40,7 @@ IDC           = idc
 IDL           = midl
 ZIP           = zip -r -9
 DEF_FILE      = 
-RES_FILE      = 
+RES_FILE      = debug\first_time_run_resource_res.o
 SED           = $(QMAKE) -install sed
 MOVE          = move
 
@@ -72,8 +72,11 @@ DESTDIR_TARGET = debug\first_time_run.exe
 first: all
 all: Makefile.Debug  debug/first_time_run.exe
 
-debug/first_time_run.exe: D:/Qt/6.2.4/mingw_64/lib/libQt6Widgets.a D:/Qt/6.2.4/mingw_64/lib/libQt6Gui.a D:/Qt/6.2.4/mingw_64/lib/libQt6Core.a D:/Qt/6.2.4/mingw_64/lib/libQt6EntryPoint.a ui_mainwindow.h $(OBJECTS) 
+debug/first_time_run.exe: D:/Qt/6.2.4/mingw_64/lib/libQt6Widgets.a D:/Qt/6.2.4/mingw_64/lib/libQt6Gui.a D:/Qt/6.2.4/mingw_64/lib/libQt6Core.a D:/Qt/6.2.4/mingw_64/lib/libQt6EntryPoint.a ui_mainwindow.h $(OBJECTS) debug/first_time_run_resource_res.o
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) $(OBJECTS)  $(LIBS)
+
+debug/first_time_run_resource_res.o: first_time_run_resource.rc
+	windres -i first_time_run_resource.rc -o debug\first_time_run_resource_res.o --include-dir=. $(DEFINES)
 
 qmake: FORCE
 	@$(QMAKE) -o Makefile.Debug ..\first_time_run\first_time_run.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -85,6 +88,7 @@ dist:
 
 clean: compiler_clean 
 	-$(DEL_FILE) debug\main.o debug\mainwindow.o debug\qrc_resources.o debug\qrc_qmake_qmake_qm_files.o debug\moc_mainwindow.o
+	-$(DEL_FILE) debug\first_time_run_resource_res.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -112,9 +116,110 @@ compiler_rcc_clean:
 	-$(DEL_FILE) debug\qrc_resources.cpp debug\qrc_qmake_qmake_qm_files.cpp
 debug/qrc_resources.cpp: ../first_time_run/resources.qrc \
 		D:/Qt/6.2.4/mingw_64/bin/rcc.exe \
+		../first_time_run/resources/avatar_preview_card.png \
 		../first_time_run/resources/pushbutton_language.png \
 		../first_time_run/resources/pushbutton_back.png \
 		../first_time_run/resources/bg.png \
+		../first_time_run/resources/rectangle/yanfei_256px.png \
+		../first_time_run/resources/rectangle/thoma_256px.png \
+		../first_time_run/resources/rectangle/xingqiu_256px.png \
+		../first_time_run/resources/rectangle/razor_256px.png \
+		../first_time_run/resources/rectangle/gorou_256px.png \
+		../first_time_run/resources/rectangle/yae_miko_256px.png \
+		../first_time_run/resources/rectangle/shenhe_256px.png \
+		../first_time_run/resources/rectangle/ganyu_256px.png \
+		../first_time_run/resources/rectangle/ningguang_256px.png \
+		../first_time_run/resources/rectangle/unknown_placeholder_256px.png \
+		../first_time_run/resources/rectangle/sangonomiya_kokomi_256px.png \
+		../first_time_run/resources/rectangle/4_star_placeholder_256px.png \
+		../first_time_run/resources/rectangle/zhongli_256px.png \
+		../first_time_run/resources/rectangle/kamisato_ayato_256px.png \
+		../first_time_run/resources/rectangle/dluic_256px.png \
+		../first_time_run/resources/rectangle/eula_256px.png \
+		../first_time_run/resources/rectangle/sucrose_256px.png \
+		../first_time_run/resources/rectangle/kijou_sara_256px.png \
+		../first_time_run/resources/rectangle/klee_256px.png \
+		../first_time_run/resources/rectangle/5_star_placeholder_256px.png \
+		../first_time_run/resources/rectangle/barbara_256px.png \
+		../first_time_run/resources/rectangle/mona_256px.png \
+		../first_time_run/resources/rectangle/xinyan_256px.png \
+		../first_time_run/resources/rectangle/tartaglia_256px.png \
+		../first_time_run/resources/rectangle/kamisato_ayaka_256px.png \
+		../first_time_run/resources/rectangle/bennett_256px.png \
+		../first_time_run/resources/rectangle/yoimiya_256px.png \
+		../first_time_run/resources/rectangle/aloy_256px.png \
+		../first_time_run/resources/rectangle/qiqi_256px.png \
+		../first_time_run/resources/rectangle/sayu_256px.png \
+		../first_time_run/resources/rectangle/chongyun_256px.png \
+		../first_time_run/resources/rectangle/special_placeholder_256px.png \
+		../first_time_run/resources/rectangle/jean_256px.png \
+		../first_time_run/resources/rectangle/noelle_256px.png \
+		../first_time_run/resources/rectangle/kaedehara_kazuha_256px.png \
+		../first_time_run/resources/rectangle/amber_256px.png \
+		../first_time_run/resources/rectangle/beidou_256px.png \
+		../first_time_run/resources/rectangle/albedo_256px.png \
+		../first_time_run/resources/rectangle/diona_256px.png \
+		../first_time_run/resources/rectangle/lisa_256px.png \
+		../first_time_run/resources/rectangle/xiangling_256px.png \
+		../first_time_run/resources/rectangle/arataki_itto_256px.png \
+		../first_time_run/resources/rectangle/xiao_256px.png \
+		../first_time_run/resources/rectangle/fischl_256px.png \
+		../first_time_run/resources/rectangle/rosaria_256px.png \
+		../first_time_run/resources/rectangle/kaeya_256px.png \
+		../first_time_run/resources/rectangle/keqing_256px.png \
+		../first_time_run/resources/rectangle/yun_jin_256px.png \
+		../first_time_run/resources/rectangle/raiden_shogun_256px.png \
+		../first_time_run/resources/rectangle/hutao_256px.png \
+		../first_time_run/resources/rectangle/venti_256px.png \
+		../first_time_run/resources/rounded/yanfei_256px.png \
+		../first_time_run/resources/rounded/thoma_256px.png \
+		../first_time_run/resources/rounded/xingqiu_256px.png \
+		../first_time_run/resources/rounded/razor_256px.png \
+		../first_time_run/resources/rounded/gorou_256px.png \
+		../first_time_run/resources/rounded/yae_miko_256px.png \
+		../first_time_run/resources/rounded/shenhe_256px.png \
+		../first_time_run/resources/rounded/ganyu_256px.png \
+		../first_time_run/resources/rounded/ningguang_256px.png \
+		../first_time_run/resources/rounded/sangonomiya_kokomi_256px.png \
+		../first_time_run/resources/rounded/zhongli_256px.png \
+		../first_time_run/resources/rounded/kamisato_ayato_256px.png \
+		../first_time_run/resources/rounded/dluic_256px.png \
+		../first_time_run/resources/rounded/eula_256px.png \
+		../first_time_run/resources/rounded/sucrose_256px.png \
+		../first_time_run/resources/rounded/kijou_sara_256px.png \
+		../first_time_run/resources/rounded/klee_256px.png \
+		../first_time_run/resources/rounded/mona_256px.png \
+		../first_time_run/resources/rounded/barbara_256px.png \
+		../first_time_run/resources/rounded/xinyan_256px.png \
+		../first_time_run/resources/rounded/tartaglia_256px.png \
+		../first_time_run/resources/rounded/kamisato_ayaka_256px.png \
+		../first_time_run/resources/rounded/bennett_256px.png \
+		../first_time_run/resources/rounded/yoimiya_256px.png \
+		../first_time_run/resources/rounded/unknown_256px.png \
+		../first_time_run/resources/rounded/aloy_256px.png \
+		../first_time_run/resources/rounded/qiqi_256px.png \
+		../first_time_run/resources/rounded/sayu_256px.png \
+		../first_time_run/resources/rounded/chongyun_256px.png \
+		../first_time_run/resources/rounded/jean_256px.png \
+		../first_time_run/resources/rounded/noelle_256px.png \
+		../first_time_run/resources/rounded/kaedehara_kazuha_256px.png \
+		../first_time_run/resources/rounded/amber_256px.png \
+		../first_time_run/resources/rounded/beidou_256px.png \
+		../first_time_run/resources/rounded/albedo_256px.png \
+		../first_time_run/resources/rounded/diona_256px.png \
+		../first_time_run/resources/rounded/lisa_256px.png \
+		../first_time_run/resources/rounded/xiangling_256px.png \
+		../first_time_run/resources/rounded/arataki_itto_256px.png \
+		../first_time_run/resources/rounded/xiao_256px.png \
+		../first_time_run/resources/rounded/fischl_256px.png \
+		../first_time_run/resources/rounded/rosaria_256px.png \
+		../first_time_run/resources/rounded/kaeya_256px.png \
+		../first_time_run/resources/rounded/keqing_256px.png \
+		../first_time_run/resources/rounded/yun_jin_256px.png \
+		../first_time_run/resources/rounded/raiden_shogun_256px.png \
+		../first_time_run/resources/rounded/hutao_256px.png \
+		../first_time_run/resources/rounded/venti_256px.png \
+		../first_time_run/resources/icon/application_setup_wizard.ico \
 		../first_time_run/resources/license
 	D:\Qt\6.2.4\mingw_64\bin\rcc.exe -name resources ..\first_time_run\resources.qrc -o debug\qrc_resources.cpp
 
@@ -598,6 +703,20 @@ debug/mainwindow.o: ../first_time_run/mainwindow.cpp ../first_time_run/mainwindo
 		D:/Qt/6.2.4/mingw_64/include/QtGui/qinputmethod.h \
 		D:/Qt/6.2.4/mingw_64/include/QtCore/qlocale.h \
 		D:/Qt/6.2.4/mingw_64/include/QtGui/qguiapplication_platform.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QComboBox \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qcombobox.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qabstractitemdelegate.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qstyleoption.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qabstractspinbox.h \
+		D:/Qt/6.2.4/mingw_64/include/QtGui/qvalidator.h \
+		D:/Qt/6.2.4/mingw_64/include/QtCore/qregularexpression.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qslider.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qabstractslider.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qstyle.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qtabbar.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qrubberband.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.2.4/mingw_64/include/QtCore/qabstractitemmodel.h \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QGraphicsView \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qgraphicsview.h \
 		D:/Qt/6.2.4/mingw_64/include/QtGui/qpainter.h \
@@ -605,7 +724,6 @@ debug/mainwindow.o: ../first_time_run/mainwindow.cpp ../first_time_run/mainwindo
 		D:/Qt/6.2.4/mingw_64/include/QtGui/qpen.h \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qscrollarea.h \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qabstractscrollarea.h \
-		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qframe.h \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qgraphicsscene.h \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QLabel \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qlabel.h \
@@ -622,7 +740,11 @@ debug/mainwindow.o: ../first_time_run/mainwindow.cpp ../first_time_run/mainwindo
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QTextBrowser \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qtextbrowser.h \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qtextedit.h \
-		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QWidget
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QWidget \
+		D:/Qt/6.2.4/mingw_64/include/QtCore/QProcess \
+		D:/Qt/6.2.4/mingw_64/include/QtCore/qprocess.h \
+		D:/Qt/6.2.4/mingw_64/include/QtCore/QSettings \
+		D:/Qt/6.2.4/mingw_64/include/QtCore/qsettings.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\mainwindow.o ..\first_time_run\mainwindow.cpp
 
 debug/qrc_resources.o: debug/qrc_resources.cpp 

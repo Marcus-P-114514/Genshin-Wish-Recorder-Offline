@@ -38,6 +38,8 @@ private slots:
 
     void on_next_page_from_page_six_button_clicked();
 
+    void on_preview_avatar_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -3,8 +3,115 @@
         <file>resources/bg.png</file>
         <file>resources/pushbutton_language.png</file>
         <file>resources/pushbutton_back.png</file>
+        <file>resources/avatar_preview_card.png</file>
     </qresource>
     <qresource prefix="/docs">
         <file>resources/license</file>
+    </qresource>
+    <qresource prefix="/avatar">
+        <file>resources/rounded/albedo_256px.png</file>
+        <file>resources/rounded/aloy_256px.png</file>
+        <file>resources/rounded/amber_256px.png</file>
+        <file>resources/rounded/arataki_itto_256px.png</file>
+        <file>resources/rounded/barbara_256px.png</file>
+        <file>resources/rounded/beidou_256px.png</file>
+        <file>resources/rounded/bennett_256px.png</file>
+        <file>resources/rounded/chongyun_256px.png</file>
+        <file>resources/rounded/diona_256px.png</file>
+        <file>resources/rounded/dluic_256px.png</file>
+        <file>resources/rounded/eula_256px.png</file>
+        <file>resources/rounded/fischl_256px.png</file>
+        <file>resources/rounded/ganyu_256px.png</file>
+        <file>resources/rounded/gorou_256px.png</file>
+        <file>resources/rounded/hutao_256px.png</file>
+        <file>resources/rounded/jean_256px.png</file>
+        <file>resources/rounded/kaedehara_kazuha_256px.png</file>
+        <file>resources/rounded/kaeya_256px.png</file>
+        <file>resources/rounded/kamisato_ayaka_256px.png</file>
+        <file>resources/rounded/kamisato_ayato_256px.png</file>
+        <file>resources/rounded/keqing_256px.png</file>
+        <file>resources/rounded/kijou_sara_256px.png</file>
+        <file>resources/rounded/klee_256px.png</file>
+        <file>resources/rounded/lisa_256px.png</file>
+        <file>resources/rounded/mona_256px.png</file>
+        <file>resources/rounded/ningguang_256px.png</file>
+        <file>resources/rounded/noelle_256px.png</file>
+        <file>resources/rounded/qiqi_256px.png</file>
+        <file>resources/rounded/raiden_shogun_256px.png</file>
+        <file>resources/rounded/razor_256px.png</file>
+        <file>resources/rounded/rosaria_256px.png</file>
+        <file>resources/rounded/sangonomiya_kokomi_256px.png</file>
+        <file>resources/rounded/sayu_256px.png</file>
+        <file>resources/rounded/shenhe_256px.png</file>
+        <file>resources/rounded/sucrose_256px.png</file>
+        <file>resources/rounded/tartaglia_256px.png</file>
+        <file>resources/rounded/thoma_256px.png</file>
+        <file>resources/rounded/venti_256px.png</file>
+        <file>resources/rounded/xiangling_256px.png</file>
+        <file>resources/rounded/xiao_256px.png</file>
+        <file>resources/rounded/xingqiu_256px.png</file>
+        <file>resources/rounded/xinyan_256px.png</file>
+        <file>resources/rounded/yae_miko_256px.png</file>
+        <file>resources/rounded/yanfei_256px.png</file>
+        <file>resources/rounded/yoimiya_256px.png</file>
+        <file>resources/rounded/yun_jin_256px.png</file>
+        <file>resources/rounded/zhongli_256px.png</file>
+        <file>resources/rounded/unknown_256px.png</file>
+    </qresource>
+    <qresource prefix="/characters">
+        <file>resources/rectangle/4_star_placeholder_256px.png</file>
+        <file>resources/rectangle/5_star_placeholder_256px.png</file>
+        <file>resources/rectangle/albedo_256px.png</file>
+        <file>resources/rectangle/aloy_256px.png</file>
+        <file>resources/rectangle/amber_256px.png</file>
+        <file>resources/rectangle/arataki_itto_256px.png</file>
+        <file>resources/rectangle/barbara_256px.png</file>
+        <file>resources/rectangle/beidou_256px.png</file>
+        <file>resources/rectangle/bennett_256px.png</file>
+        <file>resources/rectangle/chongyun_256px.png</file>
+        <file>resources/rectangle/diona_256px.png</file>
+        <file>resources/rectangle/dluic_256px.png</file>
+        <file>resources/rectangle/eula_256px.png</file>
+        <file>resources/rectangle/fischl_256px.png</file>
+        <file>resources/rectangle/ganyu_256px.png</file>
+        <file>resources/rectangle/gorou_256px.png</file>
+        <file>resources/rectangle/hutao_256px.png</file>
+        <file>resources/rectangle/jean_256px.png</file>
+        <file>resources/rectangle/kaedehara_kazuha_256px.png</file>
+        <file>resources/rectangle/kaeya_256px.png</file>
+        <file>resources/rectangle/kamisato_ayaka_256px.png</file>
+        <file>resources/rectangle/kamisato_ayato_256px.png</file>
+        <file>resources/rectangle/keqing_256px.png</file>
+        <file>resources/rectangle/kijou_sara_256px.png</file>
+        <file>resources/rectangle/klee_256px.png</file>
+        <file>resources/rectangle/lisa_256px.png</file>
+        <file>resources/rectangle/mona_256px.png</file>
+        <file>resources/rectangle/ningguang_256px.png</file>
+        <file>resources/rectangle/noelle_256px.png</file>
+        <file>resources/rectangle/qiqi_256px.png</file>
+        <file>resources/rectangle/raiden_shogun_256px.png</file>
+        <file>resources/rectangle/razor_256px.png</file>
+        <file>resources/rectangle/rosaria_256px.png</file>
+        <file>resources/rectangle/sangonomiya_kokomi_256px.png</file>
+        <file>resources/rectangle/sayu_256px.png</file>
+        <file>resources/rectangle/shenhe_256px.png</file>
+        <file>resources/rectangle/special_placeholder_256px.png</file>
+        <file>resources/rectangle/sucrose_256px.png</file>
+        <file>resources/rectangle/tartaglia_256px.png</file>
+        <file>resources/rectangle/thoma_256px.png</file>
+        <file>resources/rectangle/unknown_placeholder_256px.png</file>
+        <file>resources/rectangle/venti_256px.png</file>
+        <file>resources/rectangle/xiangling_256px.png</file>
+        <file>resources/rectangle/xiao_256px.png</file>
+        <file>resources/rectangle/xingqiu_256px.png</file>
+        <file>resources/rectangle/xinyan_256px.png</file>
+        <file>resources/rectangle/yae_miko_256px.png</file>
+        <file>resources/rectangle/yanfei_256px.png</file>
+        <file>resources/rectangle/yoimiya_256px.png</file>
+        <file>resources/rectangle/yun_jin_256px.png</file>
+        <file>resources/rectangle/zhongli_256px.png</file>
+    </qresource>
+    <qresource prefix="/icon">
+        <file>resources/icon/application_setup_wizard.ico</file>
     </qresource>
 </RCC>
