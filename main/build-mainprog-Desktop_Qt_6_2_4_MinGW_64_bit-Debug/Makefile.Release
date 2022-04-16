@@ -19,7 +19,7 @@ CXXFLAGS      = -fno-keep-inline-dllexport -O2 -std=gnu++1z -Wall -Wextra -Wextr
 INCPATH       = -I../mainprog -I. -ID:/Qt/6.2.4/mingw_64/include -ID:/Qt/6.2.4/mingw_64/include/QtWidgets -ID:/Qt/6.2.4/mingw_64/include/QtGui -ID:/Qt/6.2.4/mingw_64/include/QtCore -Irelease -I. -I/include -ID:/Qt/6.2.4/mingw_64/mkspecs/win32-g++ 
 LINKER      =        g++
 LFLAGS        =        -Wl,-s -Wl,-subsystem,windows -mthreads
-LIBS        =        D:\Qt\6.2.4\mingw_64\lib\libQt6Widgets.a D:\Qt\6.2.4\mingw_64\lib\libQt6Gui.a D:\Qt\6.2.4\mingw_64\lib\libQt6Core.a -lmingw32 D:\Qt\6.2.4\mingw_64\lib\libQt6EntryPoint.a -lshell32  
+LIBS        =        D:\Qt\6.2.4\mingw_64\lib\libQt6Widgets.a D:\Qt\6.2.4\mingw_64\lib\libQt6Gui.a D:\Qt\6.2.4\mingw_64\lib\libQt6Core.a release\mainprog_resource_res.o -lmingw32 D:\Qt\6.2.4\mingw_64\lib\libQt6EntryPoint.a -lshell32  
 QMAKE         = D:\Qt\6.2.4\mingw_64\bin\qmake.exe
 DEL_FILE      = del
 CHK_DIR_EXISTS= if not exist
@@ -40,7 +40,7 @@ IDC           = idc
 IDL           = midl
 ZIP           = zip -r -9
 DEF_FILE      = 
-RES_FILE      = 
+RES_FILE      = release\mainprog_resource_res.o
 SED           = $(QMAKE) -install sed
 MOVE          = move
 
@@ -51,10 +51,12 @@ OBJECTS_DIR   = release
 ####### Files
 
 SOURCES       = ..\mainprog\main.cpp \
-		..\mainprog\mainwindow.cpp release\qrc_qmake_qmake_qm_files.cpp \
+		..\mainprog\mainwindow.cpp release\qrc_resources.cpp \
+		release\qrc_qmake_qmake_qm_files.cpp \
 		release\moc_mainwindow.cpp
 OBJECTS       = release/main.o \
 		release/mainwindow.o \
+		release/qrc_resources.o \
 		release/qrc_qmake_qmake_qm_files.o \
 		release/moc_mainwindow.o
 
@@ -70,8 +72,11 @@ DESTDIR_TARGET = release\mainprog.exe
 first: all
 all: Makefile.Release  release/mainprog.exe
 
-release/mainprog.exe: D:/Qt/6.2.4/mingw_64/lib/libQt6Widgets.a D:/Qt/6.2.4/mingw_64/lib/libQt6Gui.a D:/Qt/6.2.4/mingw_64/lib/libQt6Core.a D:/Qt/6.2.4/mingw_64/lib/libQt6EntryPoint.a ui_mainwindow.h $(OBJECTS) 
+release/mainprog.exe: D:/Qt/6.2.4/mingw_64/lib/libQt6Widgets.a D:/Qt/6.2.4/mingw_64/lib/libQt6Gui.a D:/Qt/6.2.4/mingw_64/lib/libQt6Core.a D:/Qt/6.2.4/mingw_64/lib/libQt6EntryPoint.a ui_mainwindow.h $(OBJECTS) release/mainprog_resource_res.o
 	$(LINKER) $(LFLAGS) -o $(DESTDIR_TARGET) $(OBJECTS)  $(LIBS)
+
+release/mainprog_resource_res.o: mainprog_resource.rc
+	windres -i mainprog_resource.rc -o release\mainprog_resource_res.o --include-dir=. $(DEFINES)
 
 qmake: FORCE
 	@$(QMAKE) -o Makefile.Release ..\mainprog\mainprog.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -79,10 +84,11 @@ qmake: FORCE
 qmake_all: FORCE
 
 dist:
-	$(ZIP) mainprog.zip $(SOURCES) $(DIST) ..\mainprog\mainprog.pro D:\Qt\6.2.4\mingw_64\mkspecs\features\spec_pre.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\device_config.prf D:\Qt\6.2.4\mingw_64\mkspecs\common\sanitize.conf D:\Qt\6.2.4\mingw_64\mkspecs\common\gcc-base.conf D:\Qt\6.2.4\mingw_64\mkspecs\common\g++-base.conf D:\Qt\6.2.4\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf D:\Qt\6.2.4\mingw_64\mkspecs\common\windows-vulkan.conf D:\Qt\6.2.4\mingw_64\mkspecs\common\g++-win32.conf D:\Qt\6.2.4\mingw_64\mkspecs\common\windows-desktop.conf D:\Qt\6.2.4\mingw_64\mkspecs\qconfig.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_ext_freetype.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_ext_libpng.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_concurrent.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_core.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_core_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_dbus.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_designer.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_designer_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_gui.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_gui_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_help.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_help_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssettings.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_linguist.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_network.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_network_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_opengl.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_printsupport.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qml.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qml_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmldevtools_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmltest.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quick.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quick_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_sql.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_sql_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_svg.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_svg_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_testlib.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_tools_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_uitools.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_widgets.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_xml.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_xml_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\features\qt_functions.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\qt_config.prf D:\Qt\6.2.4\mingw_64\mkspecs\win32-g++\qmake.conf D:\Qt\6.2.4\mingw_64\mkspecs\features\spec_post.prf .qmake.stash D:\Qt\6.2.4\mingw_64\mkspecs\features\exclusive_builds.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\toolchain.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\default_pre.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\win32\default_pre.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\resolve_config.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\exclusive_builds_post.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\default_post.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\build_pass.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\lrelease.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\qml_debug.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\entrypoint.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\precompile_header.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\warn_on.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\qt.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\resources_functions.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\resources.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\moc.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\win32\opengl.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\uic.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\qmake_use.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\file_copies.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\win32\windows.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\testcase_targets.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\exceptions.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\yacc.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\lex.prf ..\mainprog\mainprog.pro release\qmake_qmake_qm_files.qrc D:\Qt\6.2.4\mingw_64\lib\Qt6Widgets.prl D:\Qt\6.2.4\mingw_64\lib\Qt6Gui.prl D:\Qt\6.2.4\mingw_64\lib\Qt6Core.prl D:\Qt\6.2.4\mingw_64\lib\Qt6EntryPoint.prl ..\mainprog\mainprog_zh_CN.ts ..\mainprog\mainprog_zh_CN.ts ..\mainprog\mainprog_zh_CN.ts   release\qmake_qmake_qm_files.qrc D:\Qt\6.2.4\mingw_64\mkspecs\features\data\dummy.cpp ..\mainprog\mainwindow.h  ..\mainprog\main.cpp ..\mainprog\mainwindow.cpp ..\mainprog\mainwindow.ui    
+	$(ZIP) mainprog.zip $(SOURCES) $(DIST) ..\mainprog\mainprog.pro D:\Qt\6.2.4\mingw_64\mkspecs\features\spec_pre.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\device_config.prf D:\Qt\6.2.4\mingw_64\mkspecs\common\sanitize.conf D:\Qt\6.2.4\mingw_64\mkspecs\common\gcc-base.conf D:\Qt\6.2.4\mingw_64\mkspecs\common\g++-base.conf D:\Qt\6.2.4\mingw_64\mkspecs\features\win32\windows_vulkan_sdk.prf D:\Qt\6.2.4\mingw_64\mkspecs\common\windows-vulkan.conf D:\Qt\6.2.4\mingw_64\mkspecs\common\g++-win32.conf D:\Qt\6.2.4\mingw_64\mkspecs\common\windows-desktop.conf D:\Qt\6.2.4\mingw_64\mkspecs\qconfig.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_ext_freetype.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_ext_libpng.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_concurrent.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_concurrent_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_core.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_core_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_dbus.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_dbus_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_designer.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_designer_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_designercomponents_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_devicediscovery_support_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_entrypoint_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_fb_support_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_gui.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_gui_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_help.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_help_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsanimation.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsanimation_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsfolderlistmodel_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labsqmlmodels_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssettings.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssettings_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssharedimage.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labssharedimage_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_labswavefrontmesh_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_linguist.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_linguist_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_network.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_network_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_opengl.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_opengl_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_openglwidgets.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_openglwidgets_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_packetprotocol_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_printsupport.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_printsupport_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qml.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qml_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlcompiler_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlcore.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlcore_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmldebug_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmldevtools_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmldom_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmllocalstorage_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlmodels.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlmodels_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmltest.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmltest_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlworkerscript_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_qmlxmllistmodel_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quick.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quick_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrols2impl_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickcontrolstestutilsprivate_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2quickimpl_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickdialogs2utils_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicklayouts.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicklayouts_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickparticles_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickshapes_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicktemplates2.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicktemplates2_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quicktestutilsprivate_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickwidgets.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_quickwidgets_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_sql.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_sql_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_svg.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_svg_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_svgwidgets.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_svgwidgets_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_testlib.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_testlib_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_tools_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_uiplugin.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_uitools.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_uitools_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_widgets.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_widgets_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_xml.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_xml_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\modules\qt_lib_zlib_private.pri D:\Qt\6.2.4\mingw_64\mkspecs\features\qt_functions.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\qt_config.prf D:\Qt\6.2.4\mingw_64\mkspecs\win32-g++\qmake.conf D:\Qt\6.2.4\mingw_64\mkspecs\features\spec_post.prf .qmake.stash D:\Qt\6.2.4\mingw_64\mkspecs\features\exclusive_builds.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\toolchain.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\default_pre.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\win32\default_pre.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\resolve_config.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\exclusive_builds_post.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\default_post.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\build_pass.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\lrelease.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\qml_debug.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\entrypoint.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\precompile_header.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\warn_on.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\qt.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\resources_functions.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\resources.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\moc.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\win32\opengl.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\uic.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\qmake_use.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\file_copies.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\win32\windows.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\testcase_targets.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\exceptions.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\yacc.prf D:\Qt\6.2.4\mingw_64\mkspecs\features\lex.prf ..\mainprog\mainprog.pro ..\mainprog\resources.qrc release\qmake_qmake_qm_files.qrc D:\Qt\6.2.4\mingw_64\lib\Qt6Widgets.prl D:\Qt\6.2.4\mingw_64\lib\Qt6Gui.prl D:\Qt\6.2.4\mingw_64\lib\Qt6Core.prl D:\Qt\6.2.4\mingw_64\lib\Qt6EntryPoint.prl ..\mainprog\mainprog_zh_CN.ts ..\mainprog\mainprog_zh_CN.ts ..\mainprog\mainprog_zh_CN.ts   ..\mainprog\resources.qrc release\qmake_qmake_qm_files.qrc D:\Qt\6.2.4\mingw_64\mkspecs\features\data\dummy.cpp ..\mainprog\mainwindow.h  ..\mainprog\main.cpp ..\mainprog\mainwindow.cpp ..\mainprog\mainwindow.ui    
 
 clean: compiler_clean 
-	-$(DEL_FILE) release\main.o release\mainwindow.o release\qrc_qmake_qmake_qm_files.o release\moc_mainwindow.o
+	-$(DEL_FILE) release\main.o release\mainwindow.o release\qrc_resources.o release\qrc_qmake_qmake_qm_files.o release\moc_mainwindow.o
+	-$(DEL_FILE) release\mainprog_resource_res.o
 
 distclean: clean 
 	-$(DEL_FILE) .qmake.stash
@@ -105,9 +111,167 @@ release/mainprog_zh_CN.qm: ../mainprog/mainprog_zh_CN.ts
 
 compiler_no_pch_compiler_make_all:
 compiler_no_pch_compiler_clean:
-compiler_rcc_make_all: release/qrc_qmake_qmake_qm_files.cpp
+compiler_rcc_make_all: release/qrc_resources.cpp release/qrc_qmake_qmake_qm_files.cpp
 compiler_rcc_clean:
-	-$(DEL_FILE) release\qrc_qmake_qmake_qm_files.cpp
+	-$(DEL_FILE) release\qrc_resources.cpp release\qrc_qmake_qmake_qm_files.cpp
+release/qrc_resources.cpp: ../mainprog/resources.qrc \
+		D:/Qt/6.2.4/mingw_64/bin/rcc.exe \
+		../mainprog/resources/avatar_preview_card.png \
+		../mainprog/resources/pushbutton_language.png \
+		../mainprog/resources/pushbutton_back.png \
+		../mainprog/resources/bg.png \
+		../mainprog/resources/rectangle/yanfei_256px.png \
+		../mainprog/resources/rectangle/thoma_256px.png \
+		../mainprog/resources/rectangle/xingqiu_256px.png \
+		../mainprog/resources/rectangle/razor_256px.png \
+		../mainprog/resources/rectangle/gorou_256px.png \
+		../mainprog/resources/rectangle/yae_miko_256px.png \
+		../mainprog/resources/rectangle/shenhe_256px.png \
+		../mainprog/resources/rectangle/ganyu_256px.png \
+		../mainprog/resources/rectangle/ningguang_256px.png \
+		../mainprog/resources/rectangle/unknown_placeholder_256px.png \
+		../mainprog/resources/rectangle/sangonomiya_kokomi_256px.png \
+		../mainprog/resources/rectangle/4_star_placeholder_256px.png \
+		../mainprog/resources/rectangle/zhongli_256px.png \
+		../mainprog/resources/rectangle/kamisato_ayato_256px.png \
+		../mainprog/resources/rectangle/dluic_256px.png \
+		../mainprog/resources/rectangle/eula_256px.png \
+		../mainprog/resources/rectangle/sucrose_256px.png \
+		../mainprog/resources/rectangle/kijou_sara_256px.png \
+		../mainprog/resources/rectangle/klee_256px.png \
+		../mainprog/resources/rectangle/5_star_placeholder_256px.png \
+		../mainprog/resources/rectangle/barbara_256px.png \
+		../mainprog/resources/rectangle/mona_256px.png \
+		../mainprog/resources/rectangle/xinyan_256px.png \
+		../mainprog/resources/rectangle/tartaglia_256px.png \
+		../mainprog/resources/rectangle/kamisato_ayaka_256px.png \
+		../mainprog/resources/rectangle/bennett_256px.png \
+		../mainprog/resources/rectangle/yoimiya_256px.png \
+		../mainprog/resources/rectangle/aloy_256px.png \
+		../mainprog/resources/rectangle/qiqi_256px.png \
+		../mainprog/resources/rectangle/sayu_256px.png \
+		../mainprog/resources/rectangle/chongyun_256px.png \
+		../mainprog/resources/rectangle/special_placeholder_256px.png \
+		../mainprog/resources/rectangle/jean_256px.png \
+		../mainprog/resources/rectangle/noelle_256px.png \
+		../mainprog/resources/rectangle/kaedehara_kazuha_256px.png \
+		../mainprog/resources/rectangle/amber_256px.png \
+		../mainprog/resources/rectangle/beidou_256px.png \
+		../mainprog/resources/rectangle/albedo_256px.png \
+		../mainprog/resources/rectangle/diona_256px.png \
+		../mainprog/resources/rectangle/lisa_256px.png \
+		../mainprog/resources/rectangle/xiangling_256px.png \
+		../mainprog/resources/rectangle/arataki_itto_256px.png \
+		../mainprog/resources/rectangle/xiao_256px.png \
+		../mainprog/resources/rectangle/fischl_256px.png \
+		../mainprog/resources/rectangle/rosaria_256px.png \
+		../mainprog/resources/rectangle/kaeya_256px.png \
+		../mainprog/resources/rectangle/keqing_256px.png \
+		../mainprog/resources/rectangle/yun_jin_256px.png \
+		../mainprog/resources/rectangle/raiden_shogun_256px.png \
+		../mainprog/resources/rectangle/hutao_256px.png \
+		../mainprog/resources/rectangle/venti_256px.png \
+		../mainprog/resources/rounded/yanfei_256px.png \
+		../mainprog/resources/rounded/thoma_256px.png \
+		../mainprog/resources/rounded/xingqiu_256px.png \
+		../mainprog/resources/rounded/razor_256px.png \
+		../mainprog/resources/rounded/gorou_256px.png \
+		../mainprog/resources/rounded/yae_miko_256px.png \
+		../mainprog/resources/rounded/shenhe_256px.png \
+		../mainprog/resources/rounded/ganyu_256px.png \
+		../mainprog/resources/rounded/ningguang_256px.png \
+		../mainprog/resources/rounded/sangonomiya_kokomi_256px.png \
+		../mainprog/resources/rounded/zhongli_256px.png \
+		../mainprog/resources/rounded/kamisato_ayato_256px.png \
+		../mainprog/resources/rounded/dluic_256px.png \
+		../mainprog/resources/rounded/eula_256px.png \
+		../mainprog/resources/rounded/sucrose_256px.png \
+		../mainprog/resources/rounded/kijou_sara_256px.png \
+		../mainprog/resources/rounded/klee_256px.png \
+		../mainprog/resources/rounded/mona_256px.png \
+		../mainprog/resources/rounded/barbara_256px.png \
+		../mainprog/resources/rounded/xinyan_256px.png \
+		../mainprog/resources/rounded/tartaglia_256px.png \
+		../mainprog/resources/rounded/kamisato_ayaka_256px.png \
+		../mainprog/resources/rounded/bennett_256px.png \
+		../mainprog/resources/rounded/yoimiya_256px.png \
+		../mainprog/resources/rounded/unknown_256px.png \
+		../mainprog/resources/rounded/aloy_256px.png \
+		../mainprog/resources/rounded/qiqi_256px.png \
+		../mainprog/resources/rounded/sayu_256px.png \
+		../mainprog/resources/rounded/chongyun_256px.png \
+		../mainprog/resources/rounded/jean_256px.png \
+		../mainprog/resources/rounded/noelle_256px.png \
+		../mainprog/resources/rounded/kaedehara_kazuha_256px.png \
+		../mainprog/resources/rounded/amber_256px.png \
+		../mainprog/resources/rounded/beidou_256px.png \
+		../mainprog/resources/rounded/albedo_256px.png \
+		../mainprog/resources/rounded/diona_256px.png \
+		../mainprog/resources/rounded/lisa_256px.png \
+		../mainprog/resources/rounded/xiangling_256px.png \
+		../mainprog/resources/rounded/arataki_itto_256px.png \
+		../mainprog/resources/rounded/xiao_256px.png \
+		../mainprog/resources/rounded/fischl_256px.png \
+		../mainprog/resources/rounded/rosaria_256px.png \
+		../mainprog/resources/rounded/kaeya_256px.png \
+		../mainprog/resources/rounded/keqing_256px.png \
+		../mainprog/resources/rounded/yun_jin_256px.png \
+		../mainprog/resources/rounded/raiden_shogun_256px.png \
+		../mainprog/resources/rounded/hutao_256px.png \
+		../mainprog/resources/rounded/venti_256px.png \
+		../mainprog/resources/rectangle/yanfei_256px.png \
+		../mainprog/resources/rectangle/thoma_256px.png \
+		../mainprog/resources/rectangle/xingqiu_256px.png \
+		../mainprog/resources/rectangle/razor_256px.png \
+		../mainprog/resources/rectangle/gorou_256px.png \
+		../mainprog/resources/rectangle/yae_miko_256px.png \
+		../mainprog/resources/rectangle/shenhe_256px.png \
+		../mainprog/resources/rectangle/ganyu_256px.png \
+		../mainprog/resources/rectangle/ningguang_256px.png \
+		../mainprog/resources/rectangle/unknown_placeholder_256px.png \
+		../mainprog/resources/rectangle/sangonomiya_kokomi_256px.png \
+		../mainprog/resources/rectangle/4_star_placeholder_256px.png \
+		../mainprog/resources/rectangle/zhongli_256px.png \
+		../mainprog/resources/rectangle/kamisato_ayato_256px.png \
+		../mainprog/resources/rectangle/dluic_256px.png \
+		../mainprog/resources/rectangle/eula_256px.png \
+		../mainprog/resources/rectangle/sucrose_256px.png \
+		../mainprog/resources/rectangle/kijou_sara_256px.png \
+		../mainprog/resources/rectangle/klee_256px.png \
+		../mainprog/resources/rectangle/5_star_placeholder_256px.png \
+		../mainprog/resources/rectangle/barbara_256px.png \
+		../mainprog/resources/rectangle/mona_256px.png \
+		../mainprog/resources/rectangle/xinyan_256px.png \
+		../mainprog/resources/rectangle/tartaglia_256px.png \
+		../mainprog/resources/rectangle/kamisato_ayaka_256px.png \
+		../mainprog/resources/rectangle/bennett_256px.png \
+		../mainprog/resources/rectangle/yoimiya_256px.png \
+		../mainprog/resources/rectangle/aloy_256px.png \
+		../mainprog/resources/rectangle/qiqi_256px.png \
+		../mainprog/resources/rectangle/sayu_256px.png \
+		../mainprog/resources/rectangle/chongyun_256px.png \
+		../mainprog/resources/rectangle/special_placeholder_256px.png \
+		../mainprog/resources/rectangle/jean_256px.png \
+		../mainprog/resources/rectangle/noelle_256px.png \
+		../mainprog/resources/rectangle/kaedehara_kazuha_256px.png \
+		../mainprog/resources/rectangle/amber_256px.png \
+		../mainprog/resources/rectangle/beidou_256px.png \
+		../mainprog/resources/rectangle/albedo_256px.png \
+		../mainprog/resources/rectangle/diona_256px.png \
+		../mainprog/resources/rectangle/lisa_256px.png \
+		../mainprog/resources/rectangle/xiangling_256px.png \
+		../mainprog/resources/rectangle/arataki_itto_256px.png \
+		../mainprog/resources/rectangle/xiao_256px.png \
+		../mainprog/resources/rectangle/fischl_256px.png \
+		../mainprog/resources/rectangle/rosaria_256px.png \
+		../mainprog/resources/rectangle/kaeya_256px.png \
+		../mainprog/resources/rectangle/keqing_256px.png \
+		../mainprog/resources/rectangle/yun_jin_256px.png \
+		../mainprog/resources/rectangle/raiden_shogun_256px.png \
+		../mainprog/resources/rectangle/hutao_256px.png \
+		../mainprog/resources/rectangle/venti_256px.png
+	D:\Qt\6.2.4\mingw_64\bin\rcc.exe -name resources ..\mainprog\resources.qrc -o release\qrc_resources.cpp
+
 release/qrc_qmake_qmake_qm_files.cpp: release/qmake_qmake_qm_files.qrc \
 		D:/Qt/6.2.4/mingw_64/bin/rcc.exe \
 		release/mainprog_zh_CN.qm
@@ -566,8 +730,9 @@ release/mainwindow.o: ../mainprog/mainwindow.cpp ../mainprog/mainwindow.h \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qtabwidget.h \
 		D:/Qt/6.2.4/mingw_64/include/QtGui/qicon.h \
 		ui_mainwindow.h \
-		D:/Qt/6.2.4/mingw_64/include/QtCore/QSettings \
-		D:/Qt/6.2.4/mingw_64/include/QtCore/qsettings.h \
+		D:/Qt/6.2.4/mingw_64/include/QtCore/QVariant \
+		D:/Qt/6.2.4/mingw_64/include/QtGui/QAction \
+		D:/Qt/6.2.4/mingw_64/include/QtGui/qaction.h \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QApplication \
 		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qapplication.h \
 		D:/Qt/6.2.4/mingw_64/include/QtCore/qcoreapplication.h \
@@ -589,9 +754,32 @@ release/mainwindow.o: ../mainprog/mainwindow.cpp ../mainprog/mainwindow.h \
 		D:/Qt/6.2.4/mingw_64/include/QtGui/qinputmethod.h \
 		D:/Qt/6.2.4/mingw_64/include/QtCore/qlocale.h \
 		D:/Qt/6.2.4/mingw_64/include/QtGui/qguiapplication_platform.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QGraphicsView \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qgraphicsview.h \
+		D:/Qt/6.2.4/mingw_64/include/QtGui/qpainter.h \
+		D:/Qt/6.2.4/mingw_64/include/QtGui/qtextoption.h \
+		D:/Qt/6.2.4/mingw_64/include/QtGui/qpen.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qscrollarea.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qabstractscrollarea.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qframe.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qgraphicsscene.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QLabel \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qlabel.h \
+		D:/Qt/6.2.4/mingw_64/include/QtGui/qpicture.h \
+		D:/Qt/6.2.4/mingw_64/include/QtGui/qtextdocument.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QMenu \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qmenu.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QMenuBar \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/qmenubar.h \
+		D:/Qt/6.2.4/mingw_64/include/QtWidgets/QWidget \
+		D:/Qt/6.2.4/mingw_64/include/QtCore/QSettings \
+		D:/Qt/6.2.4/mingw_64/include/QtCore/qsettings.h \
 		D:/Qt/6.2.4/mingw_64/include/QtCore/QProcess \
 		D:/Qt/6.2.4/mingw_64/include/QtCore/qprocess.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\mainwindow.o ..\mainprog\mainwindow.cpp
+
+release/qrc_resources.o: release/qrc_resources.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\qrc_resources.o release\qrc_resources.cpp
 
 release/qrc_qmake_qmake_qm_files.o: release/qrc_qmake_qmake_qm_files.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\qrc_qmake_qmake_qm_files.o release\qrc_qmake_qmake_qm_files.cpp

@@ -33,7 +33,7 @@ IDC           = idc
 IDL           = midl
 ZIP           = zip -r -9
 DEF_FILE      = 
-RES_FILE      = 
+RES_FILE      = mainprog_resource_res.o
 SED           = $(QMAKE) -install sed
 MOVE          = move
 SUBTARGETS    =  \
@@ -182,6 +182,7 @@ Makefile: ../mainprog/mainprog.pro D:/Qt/6.2.4/mingw_64/mkspecs/win32-g++/qmake.
 		D:/Qt/6.2.4/mingw_64/mkspecs/features/qt_config.prf \
 		D:/Qt/6.2.4/mingw_64/mkspecs/win32-g++/qmake.conf \
 		D:/Qt/6.2.4/mingw_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		D:/Qt/6.2.4/mingw_64/mkspecs/features/exclusive_builds.prf \
 		D:/Qt/6.2.4/mingw_64/mkspecs/features/toolchain.prf \
 		D:/Qt/6.2.4/mingw_64/mkspecs/features/default_pre.prf \
@@ -212,8 +213,8 @@ Makefile: ../mainprog/mainprog.pro D:/Qt/6.2.4/mingw_64/mkspecs/win32-g++/qmake.
 		D:/Qt/6.2.4/mingw_64/lib/Qt6Gui.prl \
 		D:/Qt/6.2.4/mingw_64/lib/Qt6Core.prl \
 		D:/Qt/6.2.4/mingw_64/lib/Qt6EntryPoint.prl \
-		.qmake.stash \
 		D:/Qt/6.2.4/mingw_64/mkspecs/features/build_pass.prf \
+		../mainprog/resources.qrc \
 		debug/qmake_qmake_qm_files.qrc \
 		release/qmake_qmake_qm_files.qrc
 	$(QMAKE) -o Makefile ..\mainprog\mainprog.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
@@ -329,6 +330,7 @@ D:/Qt/6.2.4/mingw_64/mkspecs/features/qt_functions.prf:
 D:/Qt/6.2.4/mingw_64/mkspecs/features/qt_config.prf:
 D:/Qt/6.2.4/mingw_64/mkspecs/win32-g++/qmake.conf:
 D:/Qt/6.2.4/mingw_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 D:/Qt/6.2.4/mingw_64/mkspecs/features/exclusive_builds.prf:
 D:/Qt/6.2.4/mingw_64/mkspecs/features/toolchain.prf:
 D:/Qt/6.2.4/mingw_64/mkspecs/features/default_pre.prf:
@@ -359,8 +361,8 @@ D:/Qt/6.2.4/mingw_64/lib/Qt6Widgets.prl:
 D:/Qt/6.2.4/mingw_64/lib/Qt6Gui.prl:
 D:/Qt/6.2.4/mingw_64/lib/Qt6Core.prl:
 D:/Qt/6.2.4/mingw_64/lib/Qt6EntryPoint.prl:
-.qmake.stash:
 D:/Qt/6.2.4/mingw_64/mkspecs/features/build_pass.prf:
+../mainprog/resources.qrc:
 debug/qmake_qmake_qm_files.qrc:
 release/qmake_qmake_qm_files.qrc:
 qmake: FORCE
